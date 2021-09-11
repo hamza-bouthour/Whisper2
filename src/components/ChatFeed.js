@@ -1,9 +1,7 @@
-import { useEffect, useContext, useState, useRef } from "react";
+
 import MyMessage from './MyMessage';
 import MessageForm from './MessageForm'
-import ChatSettings from "./ChatSettings";
 import ComingMessages from './ComingMessages'
-
 import { connect } from 'react-redux';
 import { addChats, setLoading, addUser, activeUserChat } from '../store/actionCreator';
 
@@ -12,9 +10,7 @@ const mapDispatchToProps = {
     addChats: (chats) => (addChats(chats)),
     addUser: (user) => (addUser(user)),
     activeUserChat: (chat) => (activeUserChat(chat)),
-    setLoading: () => (setLoading())
-    
-    
+    setLoading: () => (setLoading()) 
 }
 const mapStateToProps = state =>{
     return {
@@ -24,54 +20,8 @@ const mapStateToProps = state =>{
 }
 
 const ChatFeed = (props) => {
-
-    const [subscribe, setSubscription] = useState(true)
-    
     const { chats, activeChat, userName, messages } = props;
     const chat = chats && chats[activeChat];
-   
-    const mounted = useRef();
-    useEffect(() => {
-        // const { chats, activeChat, userName, messages } = props;
-        // const chat = chats && chats[activeChat];
-      async  function addData() {
-          console.log(chat)
-          await props.activeUserChat(chat)
-
-        }
-        if (!mounted.current) {
-            // do componentDidMount logic
-            addData();
-            mounted.current = true;
-          } else {
-            // do componentDidUpdate logic
-            // props.activeUserChat(chat)
-        }
-        return function cleanUp() {
-            props.activeUserChat(chat)
-    }
-        // const chat = chats && chats[activeChat];
-        //    const fetchData = () => {
-        //     props.setLoading();
-        //     const url = 'https://api.chatengine.io/chats/';
-        //     const headers = {'Project-ID': '59ccaea0-b048-4761-9868-9b242f18a0dd', 'User-Name': 'admin', 'User-Secret': 'admin'};
-        //     return  fetch(url, {
-        //                 method: 'GET',
-        //                 headers
-        //             })
-        //             .then(response => response.json())
-        //             .then(response => addChats(response))
-        //             .catch(e => console.log(e))
-        // }
-        // fetchData();
-        // const { chats, activeChat, userName, messages } = props;
-
-        // setTimeout(() => {
-           
-        //     // props.addUser(';ol');
-        //     // props.addChats(props.chats)
-        // }, 3000)
-    }, [])
  
     const renderReadReceipts = (message, isMyMessage) => {
        return chat.people.map((person, index) => 
@@ -134,9 +84,7 @@ const ChatFeed = (props) => {
             <div style={{height: '100ppx'}}/>
             <div className="message-form-container">
                 <MessageForm {...props} chatId={activeChat} /> 
-            </div>
-            
-         
+            </div> 
         </div>
 
     )

@@ -12,7 +12,6 @@ const MessageForm = (props) => {
             sendMessage(creds, chatId, { text });
             setValue('');
             }
-
     }
     const handleChange = (e) => {
         setValue(e.target.value)
@@ -55,6 +54,5 @@ const MessageForm = (props) => {
         </form>
     )
 }
-
 
 export default MessageForm;

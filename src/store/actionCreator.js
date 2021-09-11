@@ -1,7 +1,6 @@
 import * as ActionTypes from './actionTypes';
 
 export const addUser = (user) => {
-    console.log('user', user)
     return {
         type: ActionTypes.ADD_USER,
         payload: user
@@ -16,7 +15,6 @@ export const addChats = (chats) => {
 }
 
 export const activeUserChat = chat => {
-    console.log('chat' + chat)
     return {
         type: ActionTypes.ACTIVE_CHAT,
         payload: chat

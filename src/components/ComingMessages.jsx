@@ -1,7 +1,3 @@
-const timeStamp = () => {
-    const date = new Date();
-    return `${date.getMinutes()}:${date.getSeconds()}`
-}
 
 const ComingMessages = ({lastMessage, message}) => {
     const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== message.sender.username

@@ -12,7 +12,6 @@ const Loginform = () => {
             'User-Name': userName,
             'User-Secret': password
         }
-
         try {
             await axios.get('https://api.chatengine.io/chats', {
                 headers: auth
@@ -25,7 +24,6 @@ const Loginform = () => {
             setError('Incorrect credentials, please try again.')
         }
     }
-
     return (
         <div className="wrapper">
             <div className="form">

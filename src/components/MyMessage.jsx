@@ -1,8 +1,4 @@
 
-const timeStamp = () => {
-    const date = new Date();
-    return `${date.getMinutes()}:${date.getSeconds()}`
-}
 const MyMessage = ({ message }) => {
     if(message?.attachments?.length > 0) {
         return (
@@ -20,6 +16,5 @@ const MyMessage = ({ message }) => {
         </div>
     )
 }
-
 
 export default MyMessage;
