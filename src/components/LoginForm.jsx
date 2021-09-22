@@ -2,14 +2,14 @@ import { useState } from "react";
 import axios from 'axios';
 
 const Loginform = () => {
-    const [userName, setUsername] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const handleSubmit = async (e) => {
         e.preventDefault();
         const auth = {
             'Project-ID': '59ccaea0-b048-4761-9868-9b242f18a0dd',
-            'User-Name': userName,
+            'User-Name': username,
             'User-Secret': password
         }
         try {
@@ -17,7 +17,7 @@ const Loginform = () => {
                 headers: auth
             })
 
-            localStorage.setItem('username', userName)
+            localStorage.setItem('username', username)
             localStorage.setItem('password', password)
             window.location.reload();
         } catch (error) {
@@ -31,7 +31,7 @@ const Loginform = () => {
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="text"
-                        value={userName}
+                        value={username}
                         className="input"
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Username"

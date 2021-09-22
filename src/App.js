@@ -4,6 +4,7 @@ import ChatFeed from '../src/components/ChatFeed';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './store/configureStore';
 import { ChatEngine } from 'react-chat-engine';
+import Loginform from './components/LoginForm';
 
 const store = ConfigureStore();
 
@@ -19,6 +20,9 @@ function App() {
       photoChild[0].children[1].firstChild.style.cssText = "";
     }, 3000)
   }, [])
+  if(!localStorage.getItem('username')) {
+    return <Loginform />
+  }
   return (
     <Provider store={store}>
       <ChatEngine 
